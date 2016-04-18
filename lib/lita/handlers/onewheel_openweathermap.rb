@@ -14,7 +14,7 @@ module Lita
       end
 
       def get_data
-        uri = "http://api.openweathermap.org/v3/uvi/45.75,-122.75/2016-04-17Z.json?appid=#{config.api_key}"
+        uri = "http://api.openweathermap.org/v3/uvi/45.75,-122.75/#{Date.today.iso8601 + "Z"}.json?appid=#{config.api_key}"
         puts "getting #{uri}"
         data = RestClient.get uri
         JSON.parse data
